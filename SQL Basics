@@ -1,0 +1,52 @@
+SHOW DATABASES;
+ use sakila;
+
+SHOW tables;
+
+SELECT * from actor;  
+
+SELECT actor_id*10, last_name from actor; 
+
+SELECT * FROM actor where actor_id=2;
+
+SELECT * FROM actor where first_name='ED';
+
+SELECT * FROM actor where first_name='ED' and actor_id>100;
+
+SELECT * FROM actor where actor_id>10 and actor_id<25;
+
+SELECT * FROM actor where actor_id between 11 and 24;
+
+SELECT  actor-id, first_name from actor where actor_id=5;
+
+SELECT first_name from actor where actor_id=5;
+
+SELECT * FROM actor where actor_id in (2,5)
+
+-- select statement 
+-- sql case insenstative
+-- sql multi-line query 
+-- and or operator
+-- between and in 
+
+
+-- like oprater ==> work on pattern
+-- like 1.% [Zero or more character] 2. _[only 1 character]
+
+-- find according to 1st character
+SELECT * FROM actor where first_name like "N%";
+
+-- find according to last character
+SELECT * FROM actor where first_name like "%T";
+
+-- find according 1 and last  character
+SELECT * FROM actor where first_name like "s%T";
+
+SELECT * FROM actor where first_name like "E_";
+
+
+
+
+
+
+
