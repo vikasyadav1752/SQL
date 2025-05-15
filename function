@@ -1,0 +1,32 @@
+use sakila;
+
+-- function 
+-- code reuseable 
+-- string function 
+-- scaler function --multi-row function
+-- 1 row => apply => result for each row
+
+select first_name,lower(first_name), 
+upper(lower(first_name), length(first_name)) from actor;
+
+# substr(col, index)
+select first_name, substr(first_name,2) from actor;
+# substr(col, index, total_ character)
+select first_name, substr(first_name,2), (first_name,2,4) from actor;
+
+select first_name, instr(first_name,'E') from actor;
+
+select first_name, last_name, concat(first_name,'-', last_name,$) from actor;
+
+select first_name, last_name, concat_ws(first_name, last_name,$) from actor;
+
+-- trim () => white, character
+select first_name, trim('    hey      ') from actor;
+
+
+-- lpad , rpad
+select first_name, rpad(first_name,6,'$') from actor;
+
+
+
+
