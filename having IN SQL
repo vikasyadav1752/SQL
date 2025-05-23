@@ -1,0 +1,20 @@
+-- use of having ---> 
+use sakila;
+select * from payment;
+SELECT customer_id, COUNT(payment_id)
+FROM payment
+WHERE customer_id not in (2,3)
+GROUP BY customer_id having count(payment_id)>35;
+
+SELECT amount, SUM(rental_id), SUM(amount)
+FROM payment
+WHERE amount IN (2.99, 0.99, 5.99)
+GROUP BY amount
+HAVING SUM(rental_id) > 1000;
+
+SELECT a.actor_id,count(film_id)
+FROM actor as a
+JOIN film_actor as fa 
+WHERE a.actor_id=fa.actor_id
+GROUP BY a.actor_id 
+HAVING count(film_id)>25;
