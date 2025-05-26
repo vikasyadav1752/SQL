@@ -1,0 +1,43 @@
+-- subquery
+-- query within a query
+select payment_id, amount from payment;
+select amount from payment where payment_id= 15;
+
+select * from payment;
+select * from payment where amount=2.99;
+
+select payment_id, amount from payment;
+select amount from payment where payment_id= 15;
+
+select * from payment;
+select * from payment where amount=2.99;
+
+
+use sakila;
+select * from actor;
+select * from actor where first_name = ""ED and last_name="CHASE"%;
+
+select * from actor
+where actor_id>(select actor_id from actor 
+where first_name="ED" and last_name="CHASE";
+
+
+SELECT * FROM PAYMENT;
+select * from payment where month(payment_date)=
+(select month(payment_date) from payment where 
+payment_id=5);
+
+
+SELECT * FROM PAYMENT;
+
+SELECT customer_id , payment_id , amount
+FROM payment
+WHERE rental_id = (SELECT rental_id FROM payment WHERE payment_id = 7 and amount < 5)
+;
+
+-- get the amount and the total of paymnet done where the total number 
+-- of payment id greter than the total number of payment done by amount 5.99
+
+select sum(amount), count(payment_id) 
+from payment having count(payment_id)>(select count(Payment_id) 
+from payment where amount=5.99);
