@@ -1,0 +1,17 @@
+-- DQL => window function
+
+use sakila;
+
+select payment_id, custtomer_id, amount,
+avg(amount) over(),
+avg(amount) over(partition by customer_id) from payment;
+
+-- running sum
+
+select payment_id, customer_id, amount,
+sum(amount) over(order by customer_id) from payment;
+
+USE employees;
+SELECT employee_id, salary,
+    SUM(salary) OVER (ORDER BY employee_id) AS running_total
+FROM employees;
