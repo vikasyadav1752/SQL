@@ -1,0 +1,103 @@
+CREATE TABLE admission (
+    admission_id INT PRIMARY KEY,
+    college_name VARCHAR(100),
+    student_id INT
+);
+
+INSERT INTO admission (admission_id, college_name, student_id)
+VALUES
+(1, 'ABC University', 101),
+(2, 'XYZ College', 102),
+(3, 'LMN Institute', 103);
+
+SELECT * FROM admission;
+
+drop table student;
+
+CREATE TABLE student (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(100)
+);
+
+
+INSERT INTO student (student_id, student_name)
+VALUES
+(101, 'Rahul'),
+(102, 'Anjali'),
+(103, 'Vikram');
+
+
+CREATE TABLE admission (
+    admission_id INT PRIMARY KEY,
+    college_name VARCHAR(100),
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
+);
+
+
+INSERT INTO admission (admission_id, college_name, student_id)
+VALUES
+(1, 'ABC University', 101),
+(2, 'XYZ College', 102),
+(3, 'LMN Institute', 103);
+
+SELECT * FROM admission;
+
+
+
+
+
+
+CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Age INT,
+    Grade INT,
+    City VARCHAR(100)
+);
+
+
+INSERT INTO Students (StudentID, Name, Age, Grade, City)
+VALUES 
+(1, 'Alice', 14, 9, 'New York'),
+(2, 'Bob', 14, 9, 'Los Angeles'),
+(3, 'Charlie', 14, 10, 'Chicago'),
+(4, 'David', 15, 10, 'Chicago'),
+(5, 'Eve', 15, 10, 'Chicago');
+
+
+CREATE TABLE Marks (
+    StudentID INT,
+    Subject VARCHAR(50),
+    Marks INT,
+    FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+);
+
+
+INSERT INTO Marks (StudentID, Subject, Marks)
+VALUES 
+(1, 'Math', 90),
+(1, 'Science', 80),
+(2, 'Math', 88),
+(2, 'Science', 85),
+(3, 'Math', 95),
+(3, 'Science', 98),
+(4, 'Math', 70),
+(4, 'Science', 72);
+
+select * from students;
+
+
+use sakila;
+create table test99 as
+	select actor_id,first_name from actor;
+    
+select * from test99;
+
+select * from actor;
+
+SELECT * FROM actor
+WHERE actor_id IN (
+    SELECT actor_id FROM actor
+    WHERE first_name = 'Penelope'
+);
