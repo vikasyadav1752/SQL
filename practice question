@@ -1,0 +1,55 @@
+select * from employee1;
+
+select emp.eid, emp.ename, emp.manager_id, manager.eid, manager.ename
+ from employee1 as emp
+join employee1 as manager where emp.manager_id=manager.eid;
+
+
+ use sakila;
+ 
+ -- 
+ -- find out those actors how have work in film od 40 
+-- get the total movies done by each actor 
+-- get the number actor how have worked in each movies
+-- get only the film id where number of actor 
+
+SELECT COUNT(*) AS total FROM film_actor
+WHERE film_id = 40;
+
+SELECT actor_id, COUNT(film_id) AS total_movies
+FROM film_actor
+GROUP BY actor_id;
+
+SELECT film_id, COUNT(actor_id) AS number_of_actors
+FROM film_actor
+GROUP BY film_id;
+
+SELECT film_id
+FROM film_actor
+GROUP BY film_id
+HAVING COUNT(actor_id) > 5;
+
+-- get tha all paymetn id hows paymet date grater than the pyment date for id 3
+
+SELECT payment_id
+FROM payment
+WHERE payment_date > (
+    SELECT payment_date 
+    FROM payment 
+    WHERE payment_id = 3
+);
+
+-- get those impormastion where the staff id and the amount is same as amount id 2 
+
+SELECT *
+FROM payment
+WHERE staff_id = (
+    SELECT staff_id
+    FROM payment
+    WHERE payment_id = 2
+)
+AND amount = (
+    SELECT amount
+    FROM payment
+    WHERE payment_id = 2
+);
