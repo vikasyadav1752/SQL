@@ -1,0 +1,31 @@
+use sakila;
+
+create table studentAccess(id int, sname varchar(10) );
+insert into studentAccess values (9, 'abc');
+insert into studentaccess(id,sname) values (19,'abc');
+
+insert into studentaccess values(11);
+
+-- problem
+insert into studentAccess(id) values (22);
+
+-- solution 
+insert into studentAccess(id) values (22);
+select * from  studentaccess;
+
+create table studentAccess(id int, sname varchar(10) );
+insert into studentAaccess(id) values (22);
+insert into studentAccess(sname) values ("yash");
+
+-- dml update 
+update studentAccess set sname='raj' ;
+
+-- 1 row updaate with where clause
+update studentAccess set sname= 'abhi' where id =22;
+
+select * from student;
+
+
+create table test19(id tinyint unsigned); -- all number positive(255)
+insert into test19 values(10);
+insert into test19 values(-128);
